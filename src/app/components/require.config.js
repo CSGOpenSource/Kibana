@@ -13,6 +13,7 @@ require.config({
     css:                      '../vendor/require/css',
     text:                     '../vendor/require/text',
     moment:                   '../vendor/moment',
+    'moment-timezone':          '../vendor/moment-timezone-with-data-2010-2020',
     blob:                     '../vendor/blob',
     filesaver:                '../vendor/filesaver',
     chromath:                 '../vendor/chromath',
