@@ -2,7 +2,8 @@ define([
   'angular',
   'lodash',
   'config',
-  'moment'
+  'moment',
+  'moment-timezone'
 ],
 function (angular, _, config, moment) {
   'use strict';
@@ -15,7 +16,7 @@ function (angular, _, config, moment) {
     this.indices = function(from,to,pattern,interval) {
       var possible = [];
       _.each(expand_range(from,to,interval),function(d){
-        possible.push(d.utc().format(pattern));
+        possible.push(d.tz("America/Denver").format(pattern));
       });
 
       return resolve_indices(possible).then(function(p) {
