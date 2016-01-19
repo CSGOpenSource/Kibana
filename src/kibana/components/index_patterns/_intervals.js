@@ -3,6 +3,7 @@ define(function (require) {
     var _ = require('lodash');
     var moment = require('moment');
     var IndexedArray = require('utils/indexed_array/index');
+    require('moment-timezone');
 
     var intervals = new IndexedArray({
       index: ['name'],
@@ -55,7 +56,7 @@ define(function (require) {
         if (_.isNumeric(val)) val = moment().add(val, interval.name);
         else if (!moment.isMoment(val)) val = moment(val);
 
-        return val.clone().utc()[extend](interval.startOf);
+        return val.clone().tz('America/Denver')[extend](interval.startOf);
       }).sort(function (a, b) {
         return a - b;
       });
